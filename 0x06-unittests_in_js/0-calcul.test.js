@@ -1,38 +1,22 @@
+const calculateNumber = require("./0-calcul.js");
 const assert = require('assert');
-const calculateNumber = require('./0-calcul');
 
-describe('calculateNumber()', () => {
-  it('rounds positive integers correctly', () => {
-    assert.strictEqual(calculateNumber(1.5, 2.5), 4);
-    assert.strictEqual(calculateNumber(12.345, 5.678), 18);
-  });
+describe('calculateNumber', () => {
+    it('rounding of a', () => {
+        assert.equal(calculateNumber(16.78, 1), 18);
+        assert.equal(calculateNumber(3.2, 0), 3);
+        assert.equal(calculateNumber(2.5, 2), 5);
+    });
 
-  it('rounds negative integers correctly', () => {
-    assert.strictEqual(calculateNumber(-1.5, -2.5), -4);
-    assert.strictEqual(calculateNumber(-12.345, -5.678), -18);
-  });
+    it('rounding of b', () => {
+        assert.equal(calculateNumber(1, 15.68), 17);
+        assert.equal(calculateNumber(0, 5.2), 5);
+        assert.equal(calculateNumber(2, 1.5), 4);
+    });
 
-  it('rounds decimals correctly', () => {
-    assert.strictEqual(calculateNumber(3.14159, 2.71828), 5.86);
-    assert.strictEqual(calculateNumber(0.4999, 0.5001), 1);
-  });
-
-  it('rounds mixed number types correctly', () => {
-    assert.strictEqual(calculateNumber(1.5, 2.71828), 4.22);
-    assert.strictEqual(calculateNumber(-3.14159, 5.678), 2.54);
-  });
-
-  it('handles special cases', () => {
-    assert.strictEqual(calculateNumber(Infinity, Infinity), Infinity);
-    assert.strictEqual(calculateNumber(-Infinity, -Infinity), -Infinity);
-    assert.strictEqual(calculateNumber(NaN, NaN), NaN);
-    assert.strictEqual(calculateNumber(0, 0), 0);
-  });
-
-  it('throws an error for non-numeric inputs', () => {
-    assert.throws(() => calculateNumber('a', 'b'));
-    assert.throws(() => calculateNumber(true, false));
-    assert.throws(() => calculateNumber(null, undefined));
-  });
-});
-
+    it('suming of a and b', () => {
+        assert.equal(calculateNumber(13.78, 2.5), 16);
+        assert.equal(calculateNumber(1.2, 0.2), 1);
+        assert.equal(calculateNumber(3.5, 2.7), 6);
+    });
+})
